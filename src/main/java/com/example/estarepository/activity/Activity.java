@@ -1,15 +1,17 @@
 package com.example.estarepository.activity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @Setter
 @Getter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +19,7 @@ public class Activity {
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
-    private Timestamp createdOn;
+    private Instant createdOn;
     @Column(nullable = false)
     private Integer usageCounter;
     @Column(nullable = false)
